@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="container" style="margin-top: 150px">
+    <div class="container" >
         <router-view> </router-view>
     </div>
 @endsection

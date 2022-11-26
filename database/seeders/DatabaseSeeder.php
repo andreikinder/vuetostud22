@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Status;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         //User::factory(10)->create();
+
+         Status::factory(40)->state(new Sequence(
+             fn($sequence) => ['user_id' => User::all()->random()]      ))->create();
+
+
+//        $users = User::factory()
+//            ->count(10)
+//            ->state(new Sequence(
+//                fn ($sequence) => ['role' => UserRoles::all()->random()],
+//                ))
+//            ->create();
     }
 }
