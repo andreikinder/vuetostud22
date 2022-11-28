@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/statuses', function () {
-    return \App\Models\Status::latest()->with('user')->get();
-});
+
+Route::resource('statuses', \App\Http\Controllers\StatusController::class);
+
 
