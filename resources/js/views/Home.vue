@@ -1,6 +1,13 @@
 <template>
     <div class="box block">
 
+        <menu-list :items="['one', 'two','three']">
+            <template  v-slot="props" >
+                <h2 v-text="props.item"></h2>
+            </template>
+
+        </menu-list>
+
         <add-to-stream @completed="addStatus"></add-to-stream>
 
         <article class="message" v-for="status in statuses">
@@ -23,8 +30,9 @@
     import moment from 'moment';
     import Status from "../models/Status";
     import AddToStream from "../components/AddToStream";
+    import MenuList from "../components/MenuList";
     export default {
-        components : {AddToStream},
+        components : {MenuList, AddToStream},
         data(){
             return {
                 statuses : []
