@@ -8,6 +8,21 @@
 
         </menu-list>
 
+        <carousel :autoplay="true">
+            <div class="carousel-cell">
+                <img src="http://placekitten.com/g/800/300?v=1" alt="">
+            </div>
+            <div class="carousel-cell">
+                <img src="http://placekitten.com/g/800/300?v=2" alt="">
+            </div>
+            <div class="carousel-cell">
+                <img src="http://placekitten.com/g/800/300?v=3" alt="">
+            </div>
+            <div class="carousel-cell">
+                <img src="http://placekitten.com/g/800/300?v=4" alt="">
+            </div>
+        </carousel>
+
         <add-to-stream @completed="addStatus"></add-to-stream>
 
         <article class="message" v-for="status in statuses">
@@ -31,8 +46,9 @@
     import Status from "../models/Status";
     import AddToStream from "../components/AddToStream";
     import MenuList from "../components/MenuList";
+    import Carousel from "../components/Carousel";
     export default {
-        components : {MenuList, AddToStream},
+        components : {MenuList, AddToStream, Carousel},
         data(){
             return {
                 statuses : []
