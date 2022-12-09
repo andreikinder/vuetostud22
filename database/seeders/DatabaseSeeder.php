@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Status;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Sequence;
@@ -18,7 +19,10 @@ class DatabaseSeeder extends Seeder
     {
          //User::factory(10)->create();
 
-         Status::factory(40)->state(new Sequence(
+//        Status::factory(40)->state(new Sequence(
+//            fn($sequence) => ['user_id' => User::all()->random()]      ))->create();
+
+         Testimonial::factory(40)->state(new Sequence(
              fn($sequence) => ['user_id' => User::all()->random()]      ))->create();
 
 

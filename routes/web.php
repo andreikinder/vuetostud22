@@ -20,4 +20,8 @@ Route::get('/', function () {
 
 Route::resource('statuses', \App\Http\Controllers\StatusController::class);
 
+Route::get('/testimonials', function (){
+   return \App\Models\Testimonial::with('user')->get();
+});
+
 

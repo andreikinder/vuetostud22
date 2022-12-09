@@ -8,6 +8,9 @@
 
         </menu-list>
 
+        <testimonials></testimonials>
+
+
         <carousel :autoplay="true">
             <div class="carousel-cell">
                 <img src="http://placekitten.com/g/800/300?v=1" alt="">
@@ -47,8 +50,9 @@
     import AddToStream from "../components/AddToStream";
     import MenuList from "../components/MenuList";
     import Carousel from "../components/Carousel";
+    import Testimonials from "../components/Testimonials";
     export default {
-        components : {MenuList, AddToStream, Carousel},
+        components : {MenuList, AddToStream, Carousel, Testimonials},
         data(){
             return {
                 statuses : []
