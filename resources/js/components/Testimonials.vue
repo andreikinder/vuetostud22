@@ -20,6 +20,7 @@
 </template>
 
 <script>
+    import _ from "lodash"
     export default {
         name: "Testimonials",
         data() {
@@ -40,15 +41,19 @@
                 this.testimonials = response.data
                 this.featured_t =   response.data[0]//this.testimonials[0]
             },
-            updateTestimonial(testimonial){
-                this.timer =      setTimeout(() => {
-                        this.featured_t = testimonial
-                }, 200)
+            // updateTestimonial(testimonial){
+            //     this.timer =      setTimeout(() => {
+            //             this.featured_t = testimonial
+            //     }, 200)
+            // },
 
-            },
-            clearTimer() {
-                clearTimeout(this.timer)
-            }
+            updateTestimonial: _.debounce(function (testimonial){
+                    this.featured_t = testimonial
+                }, 2000)
+
+            // clearTimer() {
+            //     clearTimeout(this.timer)
+            // }
         }
     }
 </script>

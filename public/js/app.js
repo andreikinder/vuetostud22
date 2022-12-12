@@ -19981,6 +19981,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Testimonials",
   data: function data() {
@@ -20003,15 +20006,20 @@ __webpack_require__.r(__webpack_exports__);
       this.testimonials = response.data;
       this.featured_t = response.data[0]; //this.testimonials[0]
     },
-    updateTestimonial: function updateTestimonial(testimonial) {
-      var _this2 = this;
-      this.timer = setTimeout(function () {
-        _this2.featured_t = testimonial;
-      }, 200);
-    },
-    clearTimer: function clearTimer() {
-      clearTimeout(this.timer);
-    }
+
+    // updateTestimonial(testimonial){
+    //     this.timer =      setTimeout(() => {
+    //             this.featured_t = testimonial
+    //     }, 200)
+    // },
+
+    updateTestimonial: lodash__WEBPACK_IMPORTED_MODULE_0___default().debounce(function (testimonial) {
+      this.featured_t = testimonial;
+    }, 2000)
+
+    // clearTimer() {
+    //     clearTimeout(this.timer)
+    // }
   }
 });
 
@@ -20226,7 +20234,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return $options.updateTestimonial(testimonial);
       },
       onMouseout: _cache[0] || (_cache[0] = function ($event) {
-        return $options.clearTimer();
+        return _ctx.clearTimer();
       })
     }, null, 42 /* CLASS, PROPS, HYDRATE_EVENTS */, _hoisted_3);
   }), 256 /* UNKEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("            @mouseout=\"clearTimer()\"")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.featured_t.user.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.featured_t.body), 1 /* TEXT */)])]);
