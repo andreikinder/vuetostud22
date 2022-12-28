@@ -1,5 +1,45 @@
 <template>
+
     <div class="box block">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item">
+                            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+                        </a>
+                        <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+                    </div>
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item is-active">
+                                Home
+                            </a>
+                            <series-dropdown></series-dropdown>
+                            <a class="navbar-item">
+                                Documentation
+                            </a>
+                            <span class="navbar-item">
+              <a class="button is-primary is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+        <portal-target name="destination">
+        </portal-target>
 
         <menu-list :items="['one', 'two','three']">
             <template  v-slot="props" >
@@ -10,6 +50,11 @@
 
         <testimonials></testimonials>
 
+        <ul style="margin: 100px 0; display: flex; justify-content: space-between; background: skyblue; padding: 100pxs">
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <support-button></support-button>
+        </ul>
 
         <carousel :autoplay="true">
             <div class="carousel-cell">
@@ -38,6 +83,8 @@
 <!--                <p>a monent ago</p>-->
                 <p v-text="status.body"></p>
             </div>
+
+
         </article>
 
 
@@ -51,8 +98,10 @@
     import MenuList from "../components/MenuList";
     import Carousel from "../components/Carousel";
     import Testimonials from "../components/Testimonials";
+    import SeriesDropdown from "../../js/components/SeriesDropdown";
+    import SupportButton from "../components/SupportButton";
     export default {
-        components : {MenuList, AddToStream, Carousel, Testimonials},
+        components : {SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown},
         data(){
             return {
                 statuses : []

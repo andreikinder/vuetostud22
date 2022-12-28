@@ -18,6 +18,26 @@ Route::get('/', function () {
 });
 
 
+Route::post('/contactsupport', function (\Illuminate\Http\Request $request){
+
+
+//    return response()->json([
+//        'message' => 'message sent. keep calm'
+//    ]);
+
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'question' => 'required',
+        'verification' => 'required',
+    ]);
+
+    return response()->json([
+        'message' => 'message sent. keep calm'
+    ]);
+});
+
+
 Route::resource('statuses', \App\Http\Controllers\StatusController::class);
 
 Route::get('/testimonials', function (){

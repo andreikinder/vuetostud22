@@ -18,9 +18,7 @@
                         <a class="navbar-item is-active">
                             Home
                         </a>
-                        <a class="navbar-item">
-                            Examples
-                        </a>
+
                         <a class="navbar-item">
                             Documentation
                         </a>
