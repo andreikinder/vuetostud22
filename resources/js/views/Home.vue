@@ -1,5 +1,11 @@
 <template>
 
+
+    <div>
+        <div v-for="q in que">
+            <accordion :title="q.question" :body="q.answer" ></accordion>
+        </div>
+    </div>
     <div class="box block">
 
         <div class="hero-head">
@@ -100,17 +106,22 @@
     import Testimonials from "../components/Testimonials";
     import SeriesDropdown from "../../js/components/SeriesDropdown";
     import SupportButton from "../components/SupportButton";
+    import Accordion from "../components/Accordion";
+
     export default {
-        components : {SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown},
+        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown},
         data(){
             return {
-                statuses : []
+                statuses : [],
+                que : []
             }
         },
         created() {
             Status.all()
                 .then(({data}) => this.statuses = data)
-           // axios.get('/statuses')
+            axios.get('/questions').then(
+                ( ({data}) => this.que = data) )
+
 
         },
         methods : {

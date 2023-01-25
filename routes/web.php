@@ -45,3 +45,6 @@ Route::get('/testimonials', function (){
 });
 
 
+Route::get('/questions', function ()  {
+   return App\Models\Question::all();
+});
