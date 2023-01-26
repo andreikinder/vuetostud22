@@ -2,9 +2,7 @@
 
 
     <div>
-        <div v-for="q in que">
-            <accordion :title="q.question" :body="q.answer" ></accordion>
-        </div>
+        <accordion :items="que"></accordion>
     </div>
     <div class="box block">
 
