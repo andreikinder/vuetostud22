@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
         <ul>
             <li v-for="item in items" >
                 <slot :item="item">{{item}}</slot>
@@ -14,7 +14,3 @@
         props : ['items']
     }
 </script>
-
-<style scoped>
-
-</style>

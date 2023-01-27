@@ -54,7 +54,7 @@
 
         <testimonials></testimonials>
 
-        <ul style="margin: 100px 0; display: flex; justify-content: space-between; background: skyblue; padding: 100pxs">
+        <ul ref="f-bar" style="margin: 100px 0; display: flex; justify-content: space-between; background: skyblue; padding: 100pxs">
             <li><a href="#">home</a></li>
             <li><a href="#">about</a></li>
             <support-button></support-button>
@@ -122,6 +122,17 @@
 
 
         },
+        mounted() {
+            let bar = this.$refs['f-bar']
+            let barOffset = bar.offsetTop
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= barOffset ) bar.classList.add('is-fixed-top')
+                else  bar.classList.remove('is-fixed-top')
+            })
+
+
+        },
         methods : {
             postedOn(status) {
                 return  moment(status.created_at).fromNow()
@@ -134,6 +145,19 @@
                 window.scrollTo(0, 0)
             }
 
+
+
         }
     }
 </script>
+
+<style scoped>
+    .is-fixed-top {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        z-index: 10;
+    }
+</style>
+
