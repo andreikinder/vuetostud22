@@ -54,11 +54,14 @@
 
         <testimonials></testimonials>
 
-        <ul ref="f-bar" style="margin: 100px 0; display: flex; justify-content: space-between; background: skyblue; padding: 100pxs">
-            <li><a href="#">home</a></li>
-            <li><a href="#">about</a></li>
-            <support-button></support-button>
-        </ul>
+        <pinned>
+            <ul  style="margin: 100px 0; display: flex; justify-content: space-between; background: skyblue; padding: 100pxs">
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <support-button></support-button>
+            </ul>
+        </pinned>
+
 
         <carousel :autoplay="true">
             <div class="carousel-cell">
@@ -106,8 +109,10 @@
     import SupportButton from "../components/SupportButton";
     import Accordion from "../components/Accordion";
 
+    import Pinned from "../components/Pinned";
+
     export default {
-        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown},
+        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown, Pinned},
         data(){
             return {
                 statuses : [],
@@ -122,17 +127,7 @@
 
 
         },
-        mounted() {
-            let bar = this.$refs['f-bar']
-            let barOffset = bar.offsetTop
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY >= barOffset ) bar.classList.add('is-fixed-top')
-                else  bar.classList.remove('is-fixed-top')
-            })
-
-
-        },
         methods : {
             postedOn(status) {
                 return  moment(status.created_at).fromNow()
