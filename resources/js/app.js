@@ -25,5 +25,23 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 app.use(VueSweetalert2);
 // app.use(VModal)
+
+
+import tippy from 'tippy.js';
+
+
+app.directive('tooltip',
+    (el, binding) => {
+        tippy(el, {
+            content: binding.value,
+            placement: binding.arg || 'top',
+        });
+        // this will be called for both `mounted` and `updated`
+    }
+)
+
+
+
 app.mount('#app')
+
 

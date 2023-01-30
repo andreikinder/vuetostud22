@@ -1,6 +1,22 @@
 <template>
 
 
+    <h3>option 1</h3>
+    <p>Lorem fsdj fjdsl <span data-tooltip-placement="right" data-tooltip="some text">hover on me</span> </p>
+
+    <h3>option 2</h3>
+    <p>Lorem fsdj fjdsl <span v-tooltip:right="'some text'">hover on me</span> </p>
+
+    <h3>option 3</h3>
+    <p>Lorem fsdj fjdsl <span data-tooltip-name="our-products-tooltip">hover on me</span> </p>
+
+    <tooltip name="our-products-tooltip" placement="left">
+        <h1>our products</h1>
+        <p>description of our product. is over here. read for it.</p>
+
+    </tooltip>
+
+
     <div>
         <accordion :items="que"></accordion>
     </div>
@@ -111,8 +127,13 @@
 
     import Pinned from "../components/Pinned";
 
+    import tippy from 'tippy.js';
+    import 'tippy.js/dist/tippy.css';
+
+    import Tooltip from "../components/Tooltip";
+
     export default {
-        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown, Pinned},
+        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown, Pinned, Tooltip},
         data(){
             return {
                 statuses : [],
@@ -126,6 +147,15 @@
                 ( ({data}) => this.que = data) )
 
 
+        },
+
+        mounted() {
+            document.querySelectorAll('[data-tooltip]').forEach( elem => {
+                tippy(elem, {
+                    content: elem.dataset.tooltip,
+                    placement: elem.dataset.tooltipPlacement || 'top',
+                });
+            });
         },
 
         methods : {
