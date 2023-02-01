@@ -1,6 +1,7 @@
 <template>
 
 
+    <example-component></example-component>
     <h3>option 1</h3>
     <p>Lorem fsdj fjdsl <span data-tooltip-placement="right" data-tooltip="some text">hover on me</span> </p>
 
@@ -132,8 +133,13 @@
 
     import Tooltip from "../components/Tooltip";
 
+    import ExampleComponent from "../components/ExampleComponent";
+
     export default {
-        components : {Accordion, SupportButton, MenuList, AddToStream, Carousel, Testimonials, SeriesDropdown, Pinned, Tooltip},
+        components : {Accordion,
+            SupportButton, MenuList, AddToStream,
+            ExampleComponent,
+            Carousel, Testimonials, SeriesDropdown, Pinned, Tooltip},
         data(){
             return {
                 statuses : [],
