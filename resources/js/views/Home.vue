@@ -21,6 +21,9 @@
     <div>
         <accordion :items="que"></accordion>
     </div>
+    <count to="100"></count>
+    <count to="20"></count>
+    <count to="5670"></count>
     <div class="box block">
 
         <div class="hero-head">
@@ -134,11 +137,14 @@
     import Tooltip from "../components/Tooltip";
 
     import ExampleComponent from "../components/ExampleComponent";
+    import Count from "../components/Count";
+
+
 
     export default {
         components : {Accordion,
             SupportButton, MenuList, AddToStream,
-            ExampleComponent,
+            ExampleComponent, Count,
             Carousel, Testimonials, SeriesDropdown, Pinned, Tooltip},
         data(){
             return {
