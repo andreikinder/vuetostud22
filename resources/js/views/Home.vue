@@ -1,6 +1,11 @@
 <template>
 
 
+
+    <conditional-element when-hidden="#js-primary-button">
+        <div class="fixed-bottom-ca">+</div>
+    </conditional-element>
+
     <example-component></example-component>
     <h3>option 1</h3>
     <p>Lorem fsdj fjdsl <span data-tooltip-placement="right" data-tooltip="some text">hover on me</span> </p>
@@ -17,6 +22,7 @@
 
     </tooltip>
 
+    <button class="button is-primary" id="js-primary-button">Call to action button</button>
 
     <div>
         <accordion :items="que"></accordion>
@@ -72,6 +78,7 @@
 
         </menu-list>
 
+
         <testimonials></testimonials>
 
         <pinned>
@@ -81,6 +88,7 @@
                 <support-button></support-button>
             </ul>
         </pinned>
+
 
 
         <carousel :autoplay="true">
@@ -139,12 +147,13 @@
     import ExampleComponent from "../components/ExampleComponent";
     import Count from "../components/Count";
 
+    import ConditionalElement from "../components/ConditionalElement";
 
 
     export default {
         components : {Accordion,
             SupportButton, MenuList, AddToStream,
-            ExampleComponent, Count,
+            ExampleComponent, Count, ConditionalElement,
             Carousel, Testimonials, SeriesDropdown, Pinned, Tooltip},
         data(){
             return {
@@ -195,6 +204,23 @@
         width: 100%;
         margin: 0;
         z-index: 10;
+    }
+
+    .fixed-bottom-ca{
+        position: fixed;
+        bottom: 100px;
+        right: 100px;
+        border-radius: 50%;
+        background: cornflowerblue;
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: #edf2f7;
+        padding-top:  10px;
     }
 </style>
 
